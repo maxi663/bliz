@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deja tu comentario - punky.blitz</title>
+    <link rel="stylesheet" href="maxi.html">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a0000 0%, #8b0000 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .comentarios-container {
+            max-width: 600px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px #0006;
+            padding: 30px 40px;
+        }
+        h2 {
+            text-align: center;
+            font-family: 'UnifrakturCook', cursive;
+            color: #8b0000;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        input, textarea {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1.5px solid #8b0000;
+            font-size: 1em;
+        }
+        button {
+            background: #8b0000;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-family: 'UnifrakturCook', cursive;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1a0000;
+        }
+        .comentarios-lista {
+            margin-top: 20px;
+        }
+        .comentario {
+            background: #f8f8f8;
+            border-left: 4px solid #8b0000;
+            margin-bottom: 18px;
+            padding: 12px 18px;
+            border-radius: 8px;
+        }
+        .comentario .nombre {
+            font-weight: bold;
+            color: #8b0000;
+            font-family: 'UnifrakturCook', cursive;
+        }
+        .comentario .texto {
+            margin-top: 6px;
+        }
+    </style>
+    <!-- Fuente gótica -->
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="comentarios-container">
+        <h2>Deja tu comentario</h2>
+        <form id="comentarioForm">
+            <input type="text" id="nombre" placeholder="Tu nombre" required>
+            <textarea id="comentario" rows="3" placeholder="Escribe tu comentario..." required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="comentarios-lista" id="comentariosLista">
+            <!-- Aquí aparecerán los comentarios -->
+        </div>
+    </div>
+    <script>
+        // Cargar comentarios guardados
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrarComentarios();
+        });
+
+        // Guardar comentario en localStorage y mostrarlo
+        document.getElementById('comentarioForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const comentario = document.getElementById('comentario').value.trim();
+            if (nombre && comentario) {
+                const nuevoComentario = { nombre, comentario };
+                let comentarios = JSON.parse(localStorage.getItem('comentariosPunkyBlitz') || '[]');
+                comentarios.push(nuevoComentario);
+                localStorage.setItem('comentariosPunkyBlitz', JSON.stringify(comentarios));
+                mostrarComentarios();
+                this.reset();
+            }
+        });
+
+        // Mostrar comentarios en la página
+        function mostrarComentarios() {
+            const comentariosDiv = document.getElementById('comentariosLista');
+            let comentarios = JSON.parse(localStorage.getItem('comentariosPunkyBlitz') || '[]');
+            comentariosDiv.innerHTML = '';
+            comentarios.forEach(c => {
+                const div = document.createElement('div');
+                div.className = 'comentario';
+                div.innerHTML = `<span class="nombre">${c.nombre}</span><div class="texto">${c.comentario}</div>`;
+                comentariosDiv.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>

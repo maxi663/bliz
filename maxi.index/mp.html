@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevos Llegados - punky.blitz</title>
+    <link rel="stylesheet" href="maxi.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            margin: 0;
+            padding: 0;
+        }
+        .pago-container {
+            max-width: 500px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 30px 40px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .metodo {
+            margin-bottom: 30px;
+        }
+        .metodo h3 {
+            margin-bottom: 10px;
+        }
+        .mp-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #00b1ea;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        .mp-btn:hover {
+            background: #0077b6;
+        }
+        .info {
+            font-size: 1em;
+            background: #f2f2f2;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pago-container">
+        <h2>¡Compra tus productos!</h2>
+        <div class="metodo">
+            <h3>Transferencia Bancaria</h3>
+            <div class="info">
+                <b>Banco:</b> Banco Ejemplo<br>
+                <b>CBU:</b> 1234567890123456789012<br>
+                <b>Alias:</b> punky.blitz.mp<br>
+                <b>Titular:</b> Tu Nombre<br>
+            </div>
+            <p>Envíanos el comprobante por WhatsApp o Instagram para confirmar tu compra.</p>
+        </div>
+        <div class="metodo">
+            <h3>Pagar con Mercado Pago</h3>
+            <a class="mp-btn" href="https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=TU_ID_DE_PREFERENCIA" target="_blank">
+                Pagar con Mercado Pago
+            </a>
+            <p>Recibirás la confirmación automática al completar el pago.</p>
+        </div>
+    </div>
+</body>
+</html>

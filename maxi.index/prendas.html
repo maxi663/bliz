@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más Vendidos - punky.blitz</title>
+    <link rel="stylesheet" href="maxi.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 40px;
+            min-height: 100vh;
+            box-sizing: border-box;
+            background: #fafafa;
+        }
+        .foto {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .foto:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .foto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .descripcion {
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        @media (max-width: 900px) {
+            .galeria {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            .foto img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center; margin-top:30px;">Más Vendidos</h1>
+    <div class="galeria">
+        <div class="foto">
+            <a href="producto1.html">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Campera punky">
+            </a>
+            <div class="descripcion">Campera punky pintada a mano</div>
+        </div>
+        <div class="foto">
+            <a href="producto2.html">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Parche rayo">
+            </a>
+            <div class="descripcion">Parche rayo bordado exclusivo</div>
+        </div>
+        <div class="foto">
+            <a href="producto3.html">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Remera arte urbano">
+            </a>
+            <div class="descripcion">Remera con arte urbano original</div>
+        </div>
+        <div class="foto">
+            <a href="producto4.html">
+                <img src="https://images.unsplash.com/photo-1469398715555-76331a6c7fa0?auto=format&fit=crop&w=600&q=80" alt="Parche corazón">
+            </a>
+            <div class="descripcion">Parche corazón pintado a mano</div>
+        </div>
+        <div class="foto">
+            <a href="producto5.html">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80" alt="Camisa customizada">
+            </a>
+            <div class="descripcion">Camisa customizada punky.blitz</div>
+        </div>
+        <div class="foto">
+            <a href="producto6.html">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Parche estrella">
+            </a>
+            <div class="descripcion">Parche estrella edición limitada</div>
+        </div>
+    </div>
+</body>
+</html>
